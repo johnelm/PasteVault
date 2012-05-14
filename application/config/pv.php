@@ -43,5 +43,16 @@ return array(
 	|
 	*/
 
-	'google_analytics' => false,		
+	'google_analytics' => false,
+
+	/*
+	|--------------------------------------------------------------------------
+	| Company name to use in the TOS and privacy policy
+	|--------------------------------------------------------------------------
+	|
+	| The company running this hosted instance of PasteVault
+	|
+	*/
+
+	'company' => URL::base(),				
 );

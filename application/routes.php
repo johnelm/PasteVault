@@ -97,22 +97,32 @@ Route::post('captcha', function()
 
 /*
 |
-| The terms of service page
-|
-*/
-Route::get('tos', function()
-{
-	return View::make('app.tos');
-});
-
-/*
-|
 | When cron isn't available we can clear via a route 
 |
 */
 Route::get('cache/clear', function()
 {
 	// @todo build proactive cache clearing as Laravel has no function for this
+});
+
+/*
+|
+| The terms of service page
+|
+*/
+Route::get('tos', function()
+{
+	return View::make('biz.tos');
+});
+
+/*
+|
+| Privacy policy
+|
+*/
+Route::get('privacy', function()
+{
+	return View::make('biz.privacy');
 });
 
 /*
