@@ -92,8 +92,9 @@ h1{
 	text-decoration: underline;
 }
 
-div + h3{
-	margin-top: 0px;
+h3{
+	color: #b03a16;
+	border-bottom: 1px solid #ccc;
 }
 
 ul{
