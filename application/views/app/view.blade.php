@@ -1,5 +1,9 @@
 @layout('layouts.website')
 
+@section('headers')
+	<meta name="robots" content="noindex, nofollow">
+@endsection
+
 @section('page')
 
 	<div id="get_password">

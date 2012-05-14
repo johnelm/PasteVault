@@ -44,6 +44,12 @@ Route::get('view/(:any)', function($key)
 		return View::make('app.view')->with('encrypted_text', $text);
 	}
 
+	return Redirect::to('expired', 301);
+});
+
+// We'll redirect any expired text notes to this route
+Route::get('expired', function()
+{
 	return View::make('app.expired');
 });
 

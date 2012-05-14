@@ -5,6 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>Temporary Encrypted Text</title>
 	<meta name="viewport" content="width=device-width">
+	@yield('headers')
 	{{ HTML::style('css/reveal.css') }}
 	{{ HTML::style('css/QapTcha.jquery.css') }}
 	{{ HTML::style('css/style.css') }}
