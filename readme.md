@@ -14,6 +14,14 @@ The Laravel /storage directory must be writable
 
 PasteVault defaults to storing the texts via Laravel's Cache system to file. You could change this to MySQL or one of the other options via configuration.
 
-### License
+### PasteVault License
 
 PasteVault is open-sourced software licensed under the MIT License.
+
+### PasteVault Copyright
+
+The name PasteVault and PasteVault.com as well as the logo are copyright UserScape, Inc.
+
+### Stanford Javascript Crypto Library License
+
+The Stanford Javascript Crypto Library is distributed under the terms of the BSD
