@@ -1,0 +1,117 @@
+html,
+body {
+	margin:0;
+	padding:0;
+	font-family:"Trebuchet MS", Georgia, Verdana, serif;
+	color:#000;
+	background:#dad9da;
+}
+body {
+	min-width:720px;
+	text-align:center;
+}
+h1 {
+	padding:0;
+	margin:0;
+	font-size:16px;
+}
+#centerwrap {
+	width:720px;
+	margin:20px auto;
+	padding:10px 0;
+	text-align:left;
+}
+#content {
+	background:#fff;
+	margin:0 10px;
+	padding:20px;
+	width: 400px;
+}
+
+#sidebar{
+	float: right;
+	width: 210px;
+	padding: 20px;
+	margin-right: 10px;
+}
+
+#sponsor{
+	border-top: 1px solid #ccc;
+	margin-top: 15px;
+	padding-top: 15px;
+}
+
+label{
+	display: block;
+}
+
+.QapTcha{
+	float: none;
+	margin-top: 5px;
+}
+
+.QapTcha .Slider {
+	background:transparent url('bg_draggable_qaptcha.jpg') no-repeat;
+}
+
+.QapTcha .bgSlider {
+	background-color: #eef2fe;
+	border-color: #ccc;
+}
+
+.help{
+	color: #ccc;
+	display: block;
+}
+
+/* This needs to exist for the captcha, but we'll hide it */
+#submit{
+	display: none;
+}
+
+#encrypted_text{
+	display: none;
+	word-wrap: break-word;
+	margin-bottom: 15px;
+}
+
+h1{
+	text-decoration: underline;
+}
+
+ul{
+	padding-left: 15px;
+}
+
+li{
+	margin-bottom: 5px;
+}
+
+textarea{
+	width: 400px;
+	height: 100px;
+}
+
+#results #copy_text{
+	width: 520px;
+}
+
+input {
+	width: 400px;
+}
+
+textarea, input, select{
+	margin-bottom: 15px;
+}
+
+#copy_button{
+	float: right;
+}
+
+#copied{
+	display: none;
+}
+
+#view_body{
+	word-wrap: break-word;
+}
