@@ -44,7 +44,7 @@ Route::get('view/(:any)', function($key)
 		return View::make('app.view')->with('encrypted_text', $text);
 	}
 
-	Event::fire('404');
+	return View::make('app.expired');
 });
 
 // This simple sets up the form field name that will be sent in the next request

@@ -26,6 +26,10 @@ h1 {
 	margin:0 10px;
 	padding:20px;
 	width: 400px;
+
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;	
 }
 
 #sidebar{

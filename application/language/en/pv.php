@@ -26,5 +26,6 @@ return array(
 	'decrypt_password_info'	=> 'You should have been given this password with the link to this text.',
 	'message'				=> 'Secret Text',
 	'display_message'		=> 'Display Message',
-	'copymessage'			=> "Temporary Encrypted Link\n------------------------------------------\nURL:         %link%\nPassword: %password%\n------------------------------------------\nSecurely created with https://www.pastevault.com"
+	'copymessage'			=> "Temporary Encrypted Link\n------------------------------------------\nURL:         %link%\nPassword: %password%\n------------------------------------------\nSecurely created with https://www.pastevault.com",
+	'expired_link'			=> 'This link has expired. The contents of the text has been deleted and is no longer available.'
 );

@@ -28,7 +28,7 @@
 <body>
 	<div id="centerwrap"> 
 		<div id="sidebar">
-			<h1>{{ __('pv.heading') }}</h1>
+			<a href="{{ URL::base() }}"><img src="{{ URL::to_asset('img/logo.png') }}" title="{{ __('pv.heading') }}" /></a>
 			<p>{{ __('pv.intro') }}</p>
 			<p>{{ __('pv.intro2') }}</p>
 			<p>{{ __('pv.great') }}</p>
