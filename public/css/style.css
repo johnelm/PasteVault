@@ -94,6 +94,7 @@ textarea{
 
 #results #copy_text{
 	width: 520px;
+	height: 80px;
 }
 
 input {
@@ -114,4 +115,8 @@ textarea, input, select{
 
 #view_body{
 	word-wrap: break-word;
+}
+
+.red{
+	color: red;
 }

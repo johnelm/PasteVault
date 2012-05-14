@@ -22,6 +22,14 @@ $(document).ready(function(){
 
 	// Encrypt!
 	$('#create_form').submit(function(){
+		// If password or text is empty throw up an error
+		if(!$('#password').val() || !$('#textbox').val())
+		{
+			// Make the label red
+			$('.required').addClass('red');
+			return false;
+		}
+
 		// Encrypt!
 		var secure_text = sjcl.encrypt($('#password').val(), $('#textbox').val());
 
@@ -43,8 +51,9 @@ $(document).ready(function(){
 		$.post("save", params,
 			function(data) {
 				// Put link in textarea & password in view box
-				$('#view_password').html($('#password').val());
-				$('#copy_text').val(data);
+				$('#copy_text').val($.trim($('#response_template').html()));
+				$('#copy_text').val($('#copy_text').val().replace('%link%', data));
+				$('#copy_text').val($('#copy_text').val().replace('%password%', $('#password').val()));
 			}
 		);
 

@@ -4,11 +4,11 @@
 
 	{{ Form::open('', 'post', array('id'=>'create_form'), true) }}
 
-		{{ Form::label('textbox', __('pv.text')) }}
+		{{ Form::label('textbox', __('pv.text'), array('class'=>'required')) }}
 		<span class="help">{{ __('pv.text_info') }}</span>
 		{{ Form::textarea('textbox') }}
 
-		{{ Form::label('password', __('pv.shared_password')) }}
+		{{ Form::label('password', __('pv.shared_password'), array('class'=>'required')) }}
 		<span class="help">{{ __('pv.shared_password_info') }}</span>
 		{{ Form::text('password') }}
 
@@ -31,10 +31,14 @@
 	<div id="results" class="reveal-modal">
 		<p>{{ __('pv.modal_message') }}</p>
 		
-		{{ Form::text('copy_text', '', array('id'=>'copy_text')) }}
+		{{ Form::textarea('copy_text', '', array('id'=>'copy_text')) }}
 		{{ Form::button(__('pv.copy_to_clipboard'), array('id'=>'copy_button')) }}
-		{{ __('pv.shared_password') }}: <span id="view_password"></span>
 
 	</div>
+	
 	<div id="copied"><h2>Copied!</h2></div>
+
+	<script type="text/template" id="response_template">
+		{{ __('pv.copymessage') }}
+	</script>
 @endsection
