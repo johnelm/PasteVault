@@ -2,7 +2,7 @@
 
 @section('page')
 
-	{{ Form::open('', 'post', array('id'=>'create_form')) }}
+	{{ Form::open('', 'post', array('id'=>'create_form'), true) }}
 
 		{{ Form::label('textbox', __('pv.text')) }}
 		<span class="help">{{ __('pv.text_info') }}</span>
