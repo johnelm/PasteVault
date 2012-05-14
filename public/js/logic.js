@@ -70,13 +70,6 @@ $(document).ready(function(){
 		return false;
 	});
 
-	// Show encrypted data if asked
-	$('#show_me').click(function(){
-		$('#encrypted_text').toggle();
-
-		return false;
-	});
-
 	// Decrypt text
 	$('#display_message').click(function(){
 		// Base64 decode

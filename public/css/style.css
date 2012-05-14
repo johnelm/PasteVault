@@ -36,16 +36,30 @@ h1 {
 	float: right;
 	width: 210px;
 	padding: 20px;
+	padding-top: 0px;
 	margin-right: 10px;
+	color: #4d484e;
+	font-size: 15px;
+}
+
+#sidebar li{
+	font-size: 13px;
 }
 
 #sponsor{
+	color: #4d484e;
+	font-size: 13px;
 	border-top: 1px solid #ccc;
 	margin-top: 15px;
 	padding-top: 15px;
 }
 
+.highlight{
+	color: #63821a;
+}
+
 label{
+	color: #515b7f;
 	display: block;
 }
 
@@ -59,24 +73,19 @@ label{
 }
 
 .QapTcha .bgSlider {
-	background-color: #eef2fe;
+	background-color: #63821a;
 	border-color: #ccc;
 }
 
 .help{
-	color: #ccc;
+	color: #4d484e;
+	font-size: 13px;
 	display: block;
 }
 
 /* This needs to exist for the captcha, but we'll hide it */
 #submit{
 	display: none;
-}
-
-#encrypted_text{
-	display: none;
-	word-wrap: break-word;
-	margin-bottom: 15px;
 }
 
 h1{
@@ -102,7 +111,7 @@ textarea{
 
 #results #copy_text{
 	width: 520px;
-	height: 80px;
+	height: 90px;
 }
 
 input {
@@ -126,7 +135,7 @@ textarea, input, select{
 }
 
 .red{
-	color: red;
+	color: #b03a16;
 }
 
 #footer{
