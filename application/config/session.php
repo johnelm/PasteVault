@@ -16,7 +16,7 @@ return array(
 	|
 	*/
 
-	'driver' => 'cookie',
+	'driver' => 'file',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -112,6 +112,6 @@ return array(
 	|
 	*/
 
-	'secure' => false,
+	'secure' => true,
 
 );
