@@ -3,7 +3,7 @@
 return array(
 
 	'heading' 				=> 'Paste Vault',
-	'intro' 				=> 'When you send sensitive information via email, it lives forever.',
+	'intro' 				=> 'Sensitive information sent via email lives forever.',
 	'intro2' 				=> 'Not with Paste Vault. Encrypted <u>expiring</u> text shared via secure link.',
 	'great'     			=> 'Great for:',
 	'text' 					=> 'Text to Encrypt and Expire',
