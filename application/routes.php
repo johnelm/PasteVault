@@ -8,22 +8,26 @@ Route::get('/', function()
 // Save the encrypted text
 Route::post('save', function()
 {
-	// Is the custom qaptch session var in place and is the form field send with that vars
-	// name equal to empty as it should be.
-	if(Session::has('qaptcha_key') && Input::get(Session::get('qaptcha_key')) === "" && in_array(Input::get('expire'), array_keys(Config::get('pv.hours'))))
+	// Make sure it's not bigger than max size
+	if(strlen(Input::get('text')) < Config::get('pv.max_size'))
 	{
-		// We're going to encrypt again as a second line of defence should
-		// there be a vulnerability with the JS encryption lib.
-		$text = Crypter::encrypt(Input::get('text'));
+		// Is the custom qaptch session var in place and is the form field send with that vars
+		// name equal to empty as it should be.
+		if(Session::has('qaptcha_key') && Input::get(Session::get('qaptcha_key')) === "" && in_array(Input::get('expire'), array_keys(Config::get('pv.hours'))))
+		{
+			// We're going to encrypt again as a second line of defence should
+			// there be a vulnerability with the JS encryption lib.
+			$text = Crypter::encrypt(Input::get('text'));
 
-		// Create a key for the text.
-		$key = sha1($text);
+			// Create a key for the text.
+			$key = sha1($text);
 
-		// Save the text using Laravel's cache. Convert hours to minutes.
-		Cache::put($key, $text, (Input::get('expire') * 60) );
+			// Save the text using Laravel's cache. Convert hours to minutes.
+			Cache::put($key, $text, (Input::get('expire') * 60) );
 
-		// Return the generated URL
-		return Response::make(URL::to("view/{$key}", true), 200);
+			// Return the generated URL
+			return Response::make(URL::to("view/{$key}", true), 200);
+		}
 	}
 
 	return Response::make('error', 400);
@@ -58,6 +62,19 @@ Route::post('captcha', function()
 	Session::put('qaptcha_key', false);
 
 	return Response::json(array('error'=>true), 200);
+});
+
+// The TOS
+Route::get('tos', function()
+{
+	return View::make('app.tos');
+});
+
+// Right now this is built for phpfog which doesn't have crons :(
+// so we just have to make due with a URL based approach. 
+Route::get('cache/clear', function()
+{
+	// @todo build proactive cache clearing as Laravel has no function for this
 });
 
 /*

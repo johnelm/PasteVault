@@ -109,7 +109,7 @@ textarea, input, select{
 	float: right;
 }
 
-#copied{
+#copied, #error{
 	display: none;
 }
 
@@ -119,4 +119,10 @@ textarea, input, select{
 
 .red{
 	color: red;
+}
+
+#footer{
+	margin-top: 15px;
+	margin-left: 10px;
+	font-size: 11px;
 }

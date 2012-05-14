@@ -19,6 +19,7 @@ return array(
 	'pt2'     				=> 'Passing secret URL\'s to coworkers',
 	'pt3'     				=> 'Sharing access codes',
 	'builtby'				=> 'We built Paste Vault so that our customers can securely send passwords and logins to us without them living in our <a href="http://www.helpspot.com">help desk software</a> forever. <p>Enjoy! The UserScape team.</p>',
+	'footer'				=> 'Built with <a href="http://www.laravel.com">Laravel</a> by <a href="http://www.userscape.com">UserScape</a>. Copyright :year. See our <a href="tos">terms of service</a>.',
 	'copy_to_clipboard'		=> 'Copy URL to Clipboard & Close',
 	'modal_message'			=> 'Your text has been safely encrypted in your browser! Use the link below to retrieve the text.',
 	'decrypt_password'		=> 'Text Password',

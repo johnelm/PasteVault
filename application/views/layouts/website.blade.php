@@ -23,10 +23,15 @@
 				<li>{{ __('pv.pt3') }}</li>
 			</ul>
 		</div>
+		
 		<div id="content">
 
 			@yield('page')
 
+		</div>
+
+		<div id="footer">
+			{{ __('pv.footer', array('year'=>date('Y'))) }}
 		</div>
 	</div>
 

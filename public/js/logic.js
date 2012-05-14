@@ -55,7 +55,8 @@ $(document).ready(function(){
 				$('#copy_text').val($('#copy_text').val().replace('%link%', data));
 				$('#copy_text').val($('#copy_text').val().replace('%password%', $('#password').val()));
 			}
-		);
+		)
+		.error(function() { $('#results').html($('#error').html()) });
 
 		// Show modal with results
 		$('#results').reveal({

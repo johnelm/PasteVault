@@ -37,6 +37,7 @@
 	</div>
 	
 	<div id="copied"><h2>Copied!</h2></div>
+	<div id="error"><h2>Error :(</h2></div>
 
 	<script type="text/template" id="response_template">
 		{{ __('pv.copymessage') }}
