@@ -31,5 +31,16 @@ return array(
 	|
 	*/
 
-	'max_size' => 32000,	
+	'max_size' => 32000,
+
+	/*
+	|--------------------------------------------------------------------------
+	| Google Analytics ID
+	|--------------------------------------------------------------------------
+	|
+	| If you enter your analytics ID the GA code will be added to the site.
+	|
+	*/
+
+	'google_analytics' => false,		
 );
