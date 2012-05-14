@@ -7,7 +7,6 @@
 	<meta name="viewport" content="width=device-width">
 	@yield('headers')
 	{{ HTML::style('css/reveal.css') }}
-	{{ HTML::style('css/QapTcha.jquery.css') }}
 	{{ HTML::style('css/style.css') }}
 
 	@if(Config::get('pv.google_analytics'))
@@ -56,8 +55,6 @@
 
 	{{ HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js') }}
 	{{ HTML::script('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js') }}
-	{{ HTML::script('js/jquery.ui.touch.js') }}
-	{{ HTML::script('js/QapTcha.jquery.min.js') }}
 	{{ HTML::script('js/jquery.base64.js') }}
 	{{ HTML::script('js/jquery.reveal.js') }}
 	{{ HTML::script('js/jquery.zclip.min.js') }}

@@ -11,7 +11,6 @@ return array(
 	'shared_password'     	=> 'Password',
 	'shared_password_info'	=> 'This will be required to decrypt the text',
 	'expire_after'     		=> 'Text Expires After',
-	'pull_to_encrypt'     	=> 'Pull to encrypt & store',
 	'minutes'				=> ':minutes Minutes',
 	'hour'     				=> ':hour Hour',
 	'hours'     			=> ':hours Hours',
@@ -28,5 +27,6 @@ return array(
 	'message'				=> 'Secret Text',
 	'display_message'		=> 'Display Message',
 	'copymessage'			=> "Temporary Encrypted Link\n------------------------------------------\nURL:         %link%\nPassword: %password%\n------------------------------------------\nSecurely created with https://www.pastevault.com",
-	'expired_link'			=> 'This link has expired. The contents of the text has been deleted and is no longer available.'
+	'expired_link'			=> 'This link has expired. The contents of the text has been deleted and is no longer available.',
+	'submit'				=> 'Create Private Encrypted Link'
 );

@@ -12,15 +12,10 @@
 		<span class="help">{{ __('pv.shared_password_info') }}</span>
 		{{ Form::text('password') }}
 
+		{{ Form::button(__('pv.submit'), array('id'=>'encode_button','type'=>'submit', 'class'=> 'green')) }}
+
 		{{ Form::label('expire', __('pv.expire_after')) }}
 		{{ Form::select('expire', Config::get('pv.minutes'), '720') }}			
-
-		{{ Form::label('expire', __('pv.pull_to_encrypt')) }}
-
-		<div class="QapTcha"></div>
-
-		<!-- note this is hidden, it's only here for the qaptcha -->
-		<input type="submit" id="submit" value="Submit form" />
 
 	{{ Form::close() }}
 

@@ -21,9 +21,8 @@ Route::post('save', function()
 	// Make sure it's not bigger than max size
 	if(strlen(Input::get('text')) < Config::get('pv.max_size'))
 	{
-		// Is the custom qaptch session var in place and is the form field send with that vars
-		// name equal to empty as it should be. Check that a valid number of minutes is being passed in.
-		if(Session::has('qaptcha_key') && Input::get(Session::get('qaptcha_key')) === "" && in_array(Input::get('expire'), array_keys(Config::get('pv.minutes'))))
+		// Check that a valid number of minutes is being passed in.
+		if(in_array(Input::get('expire'), array_keys(Config::get('pv.minutes'))))
 		{
 			// We're going to encrypt again as a second line of defence should
 			// there be a vulnerability with the JS encryption lib.
@@ -72,27 +71,6 @@ Route::get('view/(:any)', function($key)
 Route::get('expired', function()
 {
 	return View::make('app.expired');
-});
-
-/*
-|
-| The Qaptcha captcha plugin needs to set some session data, we do it here.
-|
-*/
-Route::post('captcha', function()
-{
-	// This is the content of the Qaptcha.jquery.php file laravelized		
-	if(Input::has('action') && Input::has('qaptcha_key'))
-	{
-		Session::put('qaptcha_key', Input::get('qaptcha_key'));
-
-		// It's all good
-		return Response::json(array('error'=>false), 200);
-	}
-
-	Session::put('qaptcha_key', false);
-
-	return Response::json(array('error'=>true), 200);
 });
 
 /*
