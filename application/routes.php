@@ -115,7 +115,14 @@ Event::listen('500', function()
 
 Route::filter('before', function()
 {
-	// Do stuff before every request to your application...
+	// Only accept HTTPS when in production mode
+	if($_SERVER['LARAVEL_ENV'] == 'production')
+	{
+		if($_SERVER['HTTP_X_FORWARDED_PROTO'] !== 'https') 
+		{
+			return Redirect::to("https://{$_SERVER['SERVER_NAME']}{$_SERVER['REQUEST_URI']}", 301, true);
+		}
+	}
 });
 
 Route::filter('after', function($response)
