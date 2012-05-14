@@ -12,6 +12,7 @@ return array(
 	'shared_password_info'	=> 'This will be required to decrypt the text',
 	'expire_after'     		=> 'Text Expires After',
 	'pull_to_encrypt'     	=> 'Pull to encrypt & store',
+	'minutes'				=> ':minutes Minutes',
 	'hour'     				=> ':hour Hour',
 	'hours'     			=> ':hours Hours',
 	'days'     				=> ':days Days',

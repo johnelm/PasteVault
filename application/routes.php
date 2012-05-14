@@ -1,19 +1,29 @@
 <?php
 
+/*
+|
+| The homepage route
+|
+*/
 Route::get('/', function()
 {
 	return View::make('app.index');
 });
 
-// Save the encrypted text
+/*
+|
+| Here we save the encrypted text using Lara's Cache system as a key/value store.
+| This makes it possible to change the storage engine just through the config files.
+|
+*/
 Route::post('save', function()
 {
 	// Make sure it's not bigger than max size
 	if(strlen(Input::get('text')) < Config::get('pv.max_size'))
 	{
 		// Is the custom qaptch session var in place and is the form field send with that vars
-		// name equal to empty as it should be.
-		if(Session::has('qaptcha_key') && Input::get(Session::get('qaptcha_key')) === "" && in_array(Input::get('expire'), array_keys(Config::get('pv.hours'))))
+		// name equal to empty as it should be. Check that a valid number of minutes is being passed in.
+		if(Session::has('qaptcha_key') && Input::get(Session::get('qaptcha_key')) === "" && in_array(Input::get('expire'), array_keys(Config::get('pv.minutes'))))
 		{
 			// We're going to encrypt again as a second line of defence should
 			// there be a vulnerability with the JS encryption lib.
@@ -22,8 +32,8 @@ Route::post('save', function()
 			// Create a key for the text.
 			$key = sha1($text);
 
-			// Save the text using Laravel's cache. Convert hours to minutes.
-			Cache::put($key, $text, (Input::get('expire') * 60) );
+			// Save the text using Laravel's cache.
+			Cache::put($key, $text, Input::get('expire') );
 
 			// Return the generated URL
 			return Response::make(URL::to("view/{$key}", true), 200);
@@ -33,7 +43,13 @@ Route::post('save', function()
 	return Response::make('error', 400);
 });
 
-// View previously stored text
+
+/*
+|
+| Show a specific note. We'll check to make sure it's still valid, if not send to 
+| the expired page.
+|
+*/
 Route::get('view/(:any)', function($key)
 {
 	if(Cache::has($key))
@@ -47,13 +63,22 @@ Route::get('view/(:any)', function($key)
 	return Redirect::to('expired', 301);
 });
 
-// We'll redirect any expired text notes to this route
+
+/*
+|
+| Expired notes are all 301 redirected to here
+|
+*/
 Route::get('expired', function()
 {
 	return View::make('app.expired');
 });
 
-// This simple sets up the form field name that will be sent in the next request
+/*
+|
+| The Qaptcha captcha plugin needs to set some session data, we do it here.
+|
+*/
 Route::post('captcha', function()
 {
 	// This is the content of the Qaptcha.jquery.php file laravelized		
@@ -70,14 +95,21 @@ Route::post('captcha', function()
 	return Response::json(array('error'=>true), 200);
 });
 
-// The TOS
+/*
+|
+| The terms of service page
+|
+*/
 Route::get('tos', function()
 {
 	return View::make('app.tos');
 });
 
-// Right now this is built for phpfog which doesn't have crons :(
-// so we just have to make due with a URL based approach. 
+/*
+|
+| When cron isn't available we can clear via a route 
+|
+*/
 Route::get('cache/clear', function()
 {
 	// @todo build proactive cache clearing as Laravel has no function for this

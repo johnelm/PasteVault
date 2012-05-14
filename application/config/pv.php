@@ -4,19 +4,20 @@ return array(
 
 	/*
 	|--------------------------------------------------------------------------
-	| Hours to cache
+	| Minutes to cache
 	|--------------------------------------------------------------------------
 	|
-	| The selection of hours text can be cached
+	| The selection of minutes text can be cached for
 	|
 	*/
 
-	'hours' => array(
-		'1'    => __('pv.hour', array('hour'=>1)),
-		'12'   => __('pv.hours', array('hours'=>12)),
-		'24'   => __('pv.hours', array('hours'=>24)),
-		'48'   => __('pv.hours', array('hours'=>48)),
-		'168'  => __('pv.days', array('days'=>7)),
+	'minutes' => array(
+		'10'     => __('pv.minutes', array('minutes'=>10)),
+		'60'     => __('pv.hour', array('hour'=>1)),
+		'720'    => __('pv.hours', array('hours'=>12)),
+		'1440'   => __('pv.hours', array('hours'=>24)),
+		'2880'   => __('pv.hours', array('hours'=>48)),
+		'10080'  => __('pv.days', array('days'=>7)),
 	),
 
 	/*

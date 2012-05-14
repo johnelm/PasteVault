@@ -13,7 +13,7 @@
 		{{ Form::text('password') }}
 
 		{{ Form::label('expire', __('pv.expire_after')) }}
-		{{ Form::select('expire', Config::get('pv.hours'), '24') }}			
+		{{ Form::select('expire', Config::get('pv.minutes'), '720') }}			
 
 		{{ Form::label('expire', __('pv.pull_to_encrypt')) }}
 
