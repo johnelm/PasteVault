@@ -27,7 +27,7 @@ Route::post('save', function()
 		'text' 		=> "max:{$max}",
 		'expire' 	=> "in:{$minutes}",
 		$honeyfield => 'honeypot',
-		$honeytime	=> 'honeytime'
+		$honeytime	=> 'honeytime|required'
 	);
 
 	$validator = Validator::make(Input::get(), $rules);

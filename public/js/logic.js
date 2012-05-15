@@ -28,6 +28,10 @@ $(document).ready(function(){
 		// Base64 encode and add to form
 		$('#text').val($.base64.encode(secure_text));
 
+		// Clean out original text and password so they're not sent to the server
+		$('#textbox').val("");
+		$('#password').val("");
+		
 		// Save it
 		$.post("save", $('#create_form').serialize(),
 			function(data) {
