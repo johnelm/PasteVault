@@ -4,6 +4,8 @@
 
 	{{ Form::open('', 'post', array('id'=>'create_form'), true) }}
 
+		{{ Form::honeypot() }}
+
 		{{ Form::label('textbox', __('pv.text'), array('class'=>'required')) }}
 		<span class="help">{{ __('pv.text_info') }}</span>
 		{{ Form::textarea('textbox') }}
@@ -17,6 +19,7 @@
 		{{ Form::label('expire', __('pv.expire_after')) }}
 		{{ Form::select('expire', Config::get('pv.minutes'), '720') }}			
 
+		{{ Form::hidden('text', '', array('id'=>'text')) }}
 	{{ Form::close() }}
 
 	<div id="sponsor">

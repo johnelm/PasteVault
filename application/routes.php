@@ -18,28 +18,37 @@ Route::get('/', function()
 */
 Route::post('save', function()
 {
-	// Make sure it's not bigger than max size
-	if(strlen(Input::get('text')) < Config::get('pv.max_size'))
+	$max 		= Config::get('pv.max_size');
+	$minutes 	= implode(',', array_keys(Config::get('pv.minutes')));
+	$honeyfield = Config::get('honeypot::default.honeypot_field');
+	$honeytime	= Config::get('honeypot::default.honeypot_field').'_time';
+
+	$rules = array(
+		'text' 		=> "max:{$max}",
+		'expire' 	=> "in:{$minutes}",
+		$honeyfield => 'honeypot',
+		$honeytime	=> 'honeytime'
+	);
+
+	$validator = Validator::make(Input::get(), $rules);
+
+	if(!$validator->fails())
 	{
-		// Check that a valid number of minutes is being passed in.
-		if(in_array(Input::get('expire'), array_keys(Config::get('pv.minutes'))))
-		{
-			// We're going to encrypt again as a second line of defence should
-			// there be a vulnerability with the JS encryption lib.
-			$text = Crypter::encrypt(Input::get('text'));
+		// We're going to encrypt again as a second line of defence should
+		// there be a vulnerability with the JS encryption lib.
+		$text = Crypter::encrypt(Input::get('text'));
 
-			// Create a key for the text.
-			$key = sha1($text);
+		// Create a key for the text.
+		$key = sha1($text);
 
-			// Save the text using Laravel's cache.
-			Cache::put($key, $text, Input::get('expire') );
+		// Save the text using Laravel's cache.
+		Cache::put($key, $text, Input::get('expire') );
 
-			// Return the generated URL
-			return Response::make(URL::to("view/{$key}", true), 200);
-		}
+		// Return the generated URL
+		return Response::make(URL::to("view/{$key}", true), 200);
 	}
 
-	return Response::make('error', 400);
+	return Response::json($validator->errors->all(':message'), 400);
 });
 
 

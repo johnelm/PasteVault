@@ -25,16 +25,11 @@ $(document).ready(function(){
 		// Encrypt!
 		var secure_text = sjcl.encrypt($('#password').val(), $('#textbox').val());
 
-		// Base64 encode
-		encoded_secure_text = $.base64.encode(secure_text);
-
-		// Setup form data to send to server
-		var params = {};
-		params['expire'] 	  = $('#expire').val();
-		params['text'] 		  = encoded_secure_text;
+		// Base64 encode and add to form
+		$('#text').val($.base64.encode(secure_text));
 
 		// Save it
-		$.post("save", params,
+		$.post("save", $('#create_form').serialize(),
 			function(data) {
 				// Put link in textarea & password in view box
 				$('#copy_text').val($.trim($('#response_template').html()));
