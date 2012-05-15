@@ -28,12 +28,8 @@ $(document).ready(function(){
 		// Base64 encode and add to form
 		$('#text').val($.base64.encode(secure_text));
 
-		// Clean out original text and password so they're not sent to the server
-		$('#textbox').val("");
-		$('#password').val("");
-		
-		// Save it
-		$.post("save", $('#create_form').serialize(),
+		// Save it. When we serialize don't send the password and original text to the server.
+		$.post("save", $('#create_form :input[value][name!="password"][name!="textbox"]').serialize(),
 			function(data) {
 				// Put link in textarea & password in view box
 				$('#copy_text').val($.trim($('#response_template').html()));
