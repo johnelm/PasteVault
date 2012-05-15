@@ -4,7 +4,7 @@
 
 	{{ Form::open('', 'post', array('id'=>'create_form'), true) }}
 
-		{{ Form::honeypot() }}
+		{{ Form::honeypot('first_name', 'first_name_time') }}
 
 		{{ Form::label('textbox', __('pv.text'), array('class'=>'required')) }}
 		<span class="help">{{ __('pv.text_info') }}</span>

@@ -20,14 +20,12 @@ Route::post('save', function()
 {
 	$max 		= Config::get('pv.max_size');
 	$minutes 	= implode(',', array_keys(Config::get('pv.minutes')));
-	$honeyfield = Config::get('honeypot::default.honeypot_field');
-	$honeytime	= Config::get('honeypot::default.honeypot_field').'_time';
 
 	$rules = array(
-		'text' 		=> "max:{$max}",
-		'expire' 	=> "in:{$minutes}",
-		$honeyfield => 'honeypot',
-		$honeytime	=> 'honeytime|required'
+		'text' 				=> "max:{$max}",
+		'expire' 			=> "in:{$minutes}",
+		'first_name' 		=> 'honeypot',
+		'first_name_time'	=> 'required|honeytime:5'
 	);
 
 	$validator = Validator::make(Input::get(), $rules);
