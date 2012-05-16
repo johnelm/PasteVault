@@ -135,7 +135,7 @@ textarea, input, select{
 	font-size: 13px;
 }
 
-#encode_button{
+.nice_button{
 	float: right;
 	margin-top: 10px;
 
@@ -150,7 +150,7 @@ textarea, input, select{
     border-radius: 3px;	
 }
 
-#encode_button.green{
+.nice_button.green{
     background: #b7d770;
     filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cae285', endColorstr='#9fcb57'); /*  IE */
     background: -webkit-gradient(linear, left top, left bottom, from(#cae285), to(#9fcb57)); /*  WebKit */
@@ -162,7 +162,8 @@ textarea, input, select{
     -moz-box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #d7e9a4;
     box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #d7e9a4;    
 }
-#encode_button.green:hover{
+
+.nice_button.green:hover{
     background: #b9d972;
     filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#b8d872', endColorstr='#b9d972'); /*  IE */
     background: -webkit-gradient(linear, left top, left bottom, from(#b8d872), to(#b9d972)); /*  WebKit */

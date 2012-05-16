@@ -14,7 +14,7 @@
 		<span class="help">{{ __('pv.shared_password_info') }}</span>
 		{{ Form::text('password') }}
 
-		{{ Form::button(__('pv.submit'), array('id'=>'encode_button','type'=>'submit', 'class'=> 'green')) }}
+		{{ Form::button(__('pv.submit'), array('id'=>'encode_button','type'=>'submit', 'class'=> 'nice_button green')) }}
 
 		{{ Form::label('expire', __('pv.expire_after')) }}
 		{{ Form::select('expire', Config::get('pv.minutes'), '720') }}			
@@ -30,7 +30,7 @@
 		<p>{{ __('pv.modal_message') }}</p>
 		
 		{{ Form::textarea('copy_text', '', array('id'=>'copy_text')) }}
-		{{ Form::button(__('pv.copy_to_clipboard'), array('id'=>'copy_button')) }}
+		{{ Form::button(__('pv.copy_to_clipboard'), array('id'=>'copy_button', 'class'=>'nice_button green')) }}
 
 	</div>
 	

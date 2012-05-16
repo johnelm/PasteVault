@@ -51,9 +51,9 @@
 		</div>
 	</div>
 
-	{{--
+	
 	<a href="https://github.com/UserScape/PasteVault"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>	
-	--}}
+	
 
 	{{ HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js') }}
 	{{ HTML::script('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js') }}

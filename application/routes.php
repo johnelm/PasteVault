@@ -20,17 +20,21 @@ Route::post('save', function()
 {
 	$max 		= Config::get('pv.max_size');
 	$minutes 	= implode(',', array_keys(Config::get('pv.minutes')));
+	$honeypot   = 'first_name';
+	$honeytime  = 'first_name_time';
 
 	$rules = array(
-		'text' 				=> "max:{$max}",
-		'expire' 			=> "in:{$minutes}",
-		'first_name' 		=> 'honeypot',
-		'first_name_time'	=> 'required|honeytime:5'
+		'text' 		=> "max:{$max}",
+		'expire' 	=> "in:{$minutes}",
+		$honeypot 	=> 'honeypot',
+		$honeytime	=> 'required|honeytime:4'
 	);
 
 	$validator = Validator::make(Input::get(), $rules);
 
-	if(!$validator->fails())
+	// Currently Laravel can't check for required on an empty string (like the honeypot)
+	// so we have to do that check ourselves. (Input::has also doesn't work)
+	if(!$validator->fails() && isset($_POST[$honeypot]))
 	{
 		// We're going to encrypt again as a second line of defence should
 		// there be a vulnerability with the JS encryption lib.
@@ -78,16 +82,6 @@ Route::get('view/(:any)', function($key)
 Route::get('expired', function()
 {
 	return View::make('app.expired');
-});
-
-/*
-|
-| When cron isn't available we can clear via a route 
-|
-*/
-Route::get('cache/clear', function()
-{
-	// @todo build proactive cache clearing as Laravel has no function for this
 });
 
 /*

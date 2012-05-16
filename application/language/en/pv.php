@@ -17,7 +17,7 @@ return array(
 	'days'     				=> ':days Days',
 	'pt1'     				=> 'Sending login details to support',
 	'pt2'     				=> 'Passing secret URL\'s to coworkers',
-	'pt3'     				=> 'Sharing access codes',
+	'pt3'     				=> 'Sharing passwords with coworkers',
 	'builtby'				=> 'We built Paste Vault so customers could securely send passwords and logins to us without them living in our <a href="http://www.helpspot.com">help desk software</a> forever. We hope it is useful for you as well. <p>Enjoy! The UserScape team.</p>',
 	'footer'				=> 'Built with <a href="http://www.laravel.com">Laravel</a> by <a href="http://www.userscape.com">UserScape</a>. Copyright :year. See our <a href="tos">terms of service</a>.',
 	'copy_to_clipboard'		=> 'Copy URL to Clipboard & Close',
