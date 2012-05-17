@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Temporary Encrypted Text</title>
+	<title>Temporary Encrypted Text :: PasteVault</title>
 	<meta name="viewport" content="width=device-width">
 	@yield('headers')
 	{{ HTML::style('css/reveal.css') }}
