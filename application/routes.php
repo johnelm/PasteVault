@@ -61,7 +61,7 @@ Route::post('save', function()
 |
 */
 Route::get('view/(:any)', function($key)
-{
+{print_r($_SERVER);
 	if(Cache::has($key))
 	{
 		// Get text and decrypt our encryption
