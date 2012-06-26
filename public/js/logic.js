@@ -52,7 +52,7 @@ $(document).ready(function(){
 	// Decrypt text
 	$('#display_message').click(function(){
 		// Base64 decode
-		var encrypted_text = $.base64.decode($('#view_body').html());
+		var encrypted_text = $.base64.decode($.trim($('#view_body').html()));
 
 		// Decrypt!
 		try
