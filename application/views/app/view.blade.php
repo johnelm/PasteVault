@@ -14,6 +14,6 @@
 	</div>
 
 	<h3>{{ __('pv.message') }}</h3>
-	<div id="view_body">{{ $encrypted_text }}</div>
+	<div id="view_body">{{ trim($encrypted_text) }}</div>
 
 @endsection
