@@ -23,7 +23,7 @@ $(document).ready(function(){
 		}
 
 		// Encrypt!
-		var secure_text = sjcl.encrypt($('#password').val(), $('#textbox').val());
+		var secure_text = sjcl.encrypt($.trim($('#password').val()), $('#textbox').val());
 
 		// Base64 encode and add to form
 		$('#text').val($.base64.encode(secure_text));
@@ -34,7 +34,7 @@ $(document).ready(function(){
 				// Put link in textarea & password in view box
 				$('#copy_text').val($.trim($('#response_template').html()));
 				$('#copy_text').val($('#copy_text').val().replace('%link%', data));
-				$('#copy_text').val($('#copy_text').val().replace('%password%', $('#password').val()));
+				$('#copy_text').val($('#copy_text').val().replace('%password%', $.trim($('#password').val())));
 			}
 		)
 		.error(function() { $('#results').html($('#error').html()) });
@@ -57,7 +57,7 @@ $(document).ready(function(){
 		// Decrypt!
 		try
 		{
-			var open_text = sjcl.decrypt($('#decrypt_password').val(), encrypted_text);	
+			var open_text = sjcl.decrypt($.trim($('#decrypt_password').val()), encrypted_text);	
 			$('#get_password').hide();
 			$('#view_body').html(open_text);
 		}
